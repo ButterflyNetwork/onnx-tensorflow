@@ -1,3 +1,4 @@
+from onnx_tf.common import get_perm_from_formats
 import tensorflow as tf
 
 from onnx_tf.handlers.backend_handler import BackendHandler
@@ -10,6 +11,9 @@ class GlobalAveragePool(BackendHandler):
   @classmethod
   def version_1(cls, node, **kwargs):
     x = kwargs["tensor_dict"][node.inputs[0]]
-    dims = tf.range(tf.rank(x))
-    _, dim_window = tf.split(dims, [2, tf.size(dims) - 2])
-    return [tf.reduce_mean(x, axis=dim_window, keepdims=True)]
+    
+    # Use average pool as mean is not reliably supported across dimensions
+    # in coreml/nnapi
+    result = tf.nn.avg_pool2d(x, x.get_shape().as_list()[1:-1], [1,1], "VALID")
+
+    return [result]
