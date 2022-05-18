@@ -4,7 +4,7 @@ import subprocess
 from textwrap import dedent
 
 TOP_DIR = os.path.realpath(os.path.dirname(__file__))
-SRC_DIR = os.path.join(TOP_DIR, 'onnx_tf')
+SRC_DIR = os.path.join(TOP_DIR, 'onnx_tf_prenatal')
 
 with open(os.path.join(TOP_DIR, 'VERSION_NUMBER')) as version_file:
   version = version_file.read().strip()
@@ -38,16 +38,11 @@ with open(os.path.join(SRC_DIR, 'version.py'), 'w') as f:
   '''.format(version, git_version)))
 
 setuptools.setup(
-    name='onnx-tf',
+    name='onnx-tf-prenatal',
     version=version,
     description=
-    'Tensorflow backend for ONNX (Open Neural Network Exchange).',
+    '[SINGLE USE FORK] Custom fork of onnx-tensorflow to resolve performance and memory leak issues with a specific model',
     install_requires=[onnx_dep, "PyYAML", "tensorflow_addons"],
-    entry_points={
-        "console_scripts": [
-            "onnx-tf=onnx_tf.cli:main",
-        ],
-    },
     url='https://github.com/onnx/onnx-tensorflow/',
     author='Arpith Jacob, Tian Jin, Gheorghe-Teodor Bercea, Wenhao Hu',
     author_email='tian.jin1@ibm.com',
