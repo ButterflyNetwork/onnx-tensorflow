@@ -15,11 +15,11 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_addons as tfa
 
-from onnx_tf.backend import onnx_graph_to_tensorflow_rep
-from onnx_tf.backend import run_node
-from onnx_tf.common import supports_device
-from onnx_tf.common.legacy import legacy_onnx_pre_ver, legacy_opset_pre_ver
-from onnx_tf.common.pooling_helper import py_pool
+from onnx_tf_prenatal.backend import onnx_graph_to_tensorflow_rep
+from onnx_tf_prenatal.backend import run_node
+from onnx_tf_prenatal.common import supports_device
+from onnx_tf_prenatal.common.legacy import legacy_onnx_pre_ver, legacy_opset_pre_ver
+from onnx_tf_prenatal.common.pooling_helper import py_pool
 
 
 class TestNode(unittest.TestCase):

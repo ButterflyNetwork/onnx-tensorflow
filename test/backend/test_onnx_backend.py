@@ -11,10 +11,10 @@ import onnx.backend.test
 
 from onnx import defs
 
-from onnx_tf import opset_version
-from onnx_tf.backend import TensorflowBackend
-from onnx_tf.common.legacy import legacy_onnx_pre_ver
-from onnx_tf.common.legacy import legacy_opset_pre_ver
+from onnx_tf_prenatal import opset_version
+from onnx_tf_prenatal.backend import TensorflowBackend
+from onnx_tf_prenatal.common.legacy import legacy_onnx_pre_ver
+from onnx_tf_prenatal.common.legacy import legacy_opset_pre_ver
 
 
 def get_onnxtf_supported_ops():

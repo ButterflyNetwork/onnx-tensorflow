@@ -9,7 +9,7 @@ import shutil
 import tensorflow as tf
 import numpy as np
 import onnx
-from onnx_tf.backend import prepare
+from onnx_tf_prenatal.backend import prepare
 from onnx import defs
 from onnx import helper
 from onnx import TensorProto
@@ -17,8 +17,8 @@ from onnx.backend.test.case.node.lstm import LSTM_Helper
 from onnx.backend.test.case.node.gru import GRU_Helper
 from onnx.backend.test.case.node.rnn import RNN_Helper
 
-from onnx_tf.common.legacy import legacy_onnx_pre_ver
-from onnx_tf.common.legacy import legacy_opset_pre_ver
+from onnx_tf_prenatal.common.legacy import legacy_onnx_pre_ver
+from onnx_tf_prenatal.common.legacy import legacy_opset_pre_ver
 
 
 class TestModel(unittest.TestCase):

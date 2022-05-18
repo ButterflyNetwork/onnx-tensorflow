@@ -6,13 +6,13 @@ from __future__ import unicode_literals
 import sys
 import onnx
 import tensorflow
-import onnx_tf
+import onnx_tf_prenatal
 
 print("Python version:")
 print(sys.version)
 print("ONNX version:")
 print(onnx.version.version)
 print("ONNX-TF version:")
-print(onnx_tf.__version__)
+print(onnx_tf_prenatal.__version__)
 print("Tensorflow version:")
 print(tensorflow.__version__)

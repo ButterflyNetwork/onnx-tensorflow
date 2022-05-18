@@ -7,9 +7,9 @@ import onnx
 from onnx.backend.test.runner import Runner
 from onnx.backend.test.case.model import TestCase
 
-from onnx_tf.backend import TensorflowBackend
-from onnx_tf.common import IS_PYTHON3
-from onnx_tf.common.legacy import legacy_onnx_pre_ver
+from onnx_tf_prenatal.backend import TensorflowBackend
+from onnx_tf_prenatal.common import IS_PYTHON3
+from onnx_tf_prenatal.common.legacy import legacy_onnx_pre_ver
 
 _ONNX_MODELS = [(
     "mobilenetv2-1.0",

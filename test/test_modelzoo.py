@@ -27,7 +27,7 @@ import tempfile
 import numpy as np
 import onnx
 import tensorflow as tf
-import onnx_tf
+import onnx_tf_prenatal
 
 # Reference matrix on ONNX version, File format version, Opset versions
 # https://github.com/onnx/onnx/blob/master/docs/Versioning.md#released-versions
@@ -252,7 +252,7 @@ def _report_check_model(model):
 def _report_convert_model(model):
   """Test conversion and returns a report string."""
   try:
-    tf_rep = onnx_tf.backend.prepare(model)
+    tf_rep = onnx_tf_prenatal.backend.prepare(model)
     tf_rep.export_graph(_CFG['output_directory'])
     return ''
   except Exception as ex:
@@ -329,7 +329,7 @@ def _assert_outputs(outputs, ref_outputs, rtol, atol):
 def _report_run_model(model, data_set):
   """Run the model and returns a report string."""
   try:
-    tf_rep = onnx_tf.backend.prepare(model)
+    tf_rep = onnx_tf_prenatal.backend.prepare(model)
     for data in data_set:
       inputs, ref_outputs = _get_inputs_and_ref_outputs(tf_rep, data)
       outputs = tf_rep.run(inputs)
@@ -489,7 +489,7 @@ def _configure_env():
   else:
     _CFG['github_actions_md'] = ''
 
-  _CFG['onnx_tf_version_md'] = onnx_tf.version.version
+  _CFG['onnx_tf_version_md'] = onnx_tf_prenatal.version.version
   if sha and repo:
     # version ([sha](url))
     commit_url = 'https://github.com/{}/commit/{}'.format(repo, sha)

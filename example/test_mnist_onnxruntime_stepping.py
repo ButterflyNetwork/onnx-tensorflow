@@ -12,8 +12,8 @@ from onnx import TensorProto
 import tensorflow as tf
 import onnxruntime.backend as ort
 
-import onnx_tf.backend as otf
-from onnx_tf.common import data_type
+import onnx_tf_prenatal.backend as otf
+from onnx_tf_prenatal.common import data_type
 
 
 def find_between(s, first, last):

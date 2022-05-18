@@ -5,7 +5,7 @@ import numpy as np
 
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models, regularizers
-import onnx_tf
+import onnx_tf_prenatal
 tf_compat = tf.compat.v1
 
 batch_size = 32
@@ -259,11 +259,11 @@ def convert_tf2onnx():
 
 def train_onnx_model():
   onnx_model = onnx.load(onnx_model_file)
-  tf_rep = onnx_tf.backend.prepare(onnx_model,
+  tf_rep = onnx_tf_prenatal.backend.prepare(onnx_model,
                                    training_mode=True,
                                    logging_level=logging.ERROR)
   training_flag_placeholder = tf_rep.tensor_dict[
-      onnx_tf.backend.training_flag_name]
+      onnx_tf_prenatal.backend.training_flag_name]
   input_name = onnx_model.graph.input[0].name
   output_name = onnx_model.graph.output[0].name
 
@@ -335,7 +335,7 @@ def train_onnx_model():
 def run_onnx_model(onnx_file):
   print('Run onnx model....')
   onnx_model = onnx.load(onnx_file)
-  tf_rep = onnx_tf.backend.prepare(onnx_model, logging_level=logging.ERROR)
+  tf_rep = onnx_tf_prenatal.backend.prepare(onnx_model, logging_level=logging.ERROR)
   input_name = tf_rep.inputs[0]
   _, test_data = get_dataset()
 
