@@ -4,5 +4,5 @@ model to TFLite, specifically resolving performance and memory leak issues ident
 partner project.  It IS NOT intended for use with any other model, and will (in all likelihood) break
 in many unexpected ways if applied to any other model.
 
-Please see [https://github.com/onnx/onnx-tensorflow](the original readme) for any more details on
+Please see [the original readme](https://github.com/onnx/onnx-tensorflow) for any more details on
 usage.
